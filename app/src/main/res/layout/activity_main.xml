@@ -7,16 +7,17 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="400dp"
         android:layout_height="125dp"
         android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/editTextNumberDecimal3"
+            android:id="@+id/FirstNum"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -29,7 +30,7 @@
             tools:ignore="LabelFor" />
 
         <EditText
-            android:id="@+id/editTextNumberDecimal4"
+            android:id="@+id/SecondNum"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,8 +48,20 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal4"
-            app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal3"
+            app:layout_constraintEnd_toStartOf="@+id/SecondNum"
+            app:layout_constraintStart_toEndOf="@+id/FirstNum"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="TextView"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
