@@ -3,11 +3,15 @@ package com.example.android_arithmetic_application
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Button
+import java.lang.Math.log
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +26,17 @@ class MainActivity : AppCompatActivity() {
         number1 = findViewById(R.id.FirstNum)
         number2 = findViewById(R.id.SecondNum)
         label = findViewById(R.id.textView)
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                spinner.setSelection(position)
+                Log.e("val", spinner.selectedItem.toString())
+            }
+        }
 
         ArrayAdapter.createFromResource(
             this,
@@ -59,17 +74,17 @@ class MainActivity : AppCompatActivity() {
 
         val Operation = spinner.selectedItem.toString()
         val result = when (Operation) {
-            "Addition" -> operand1 + operand2
-            "Subtraction" -> operand1 - operand2
-            "Multiplication" -> operand1 * operand2
-            "Division" -> {
+            "+" -> operand1 + operand2
+            "-" -> operand1 - operand2
+            "*" -> operand1 * operand2
+            "/" -> {
                 if (operand2 == 0.0) {
                     showError("Dividing by Zero is not allowed.")
                     return
                 }
                 operand1 / operand2
             }
-            "Modulus" -> {
+            "%" -> {
                 if (operand2 == 0.0) {
                     showError("Modulus by Zero is not allowed.")
                     return
